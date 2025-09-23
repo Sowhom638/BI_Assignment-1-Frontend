@@ -6,7 +6,7 @@ import Header from "../components/Header";
 const MeetDetails = () => {
   const { meetId } = useParams();
   const { data, loading, error } = useFetch(
-    `${import.meta.env.VITE_BACKEND}/meets/${meetId}`
+    `https://bi-assignment-1-backend-one.vercel.app/meets/${meetId}`
   );
   //   console.log(data);
 

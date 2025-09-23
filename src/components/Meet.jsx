@@ -6,7 +6,7 @@ const Meet = () => {
   const [type, setType] = useState("Both");
   const [search, setSearch] = useState("");
   const { data, loading, error } = useFetch(
-    `${import.meta.env.VITE_BACKEND}/meets`
+    `https://bi-assignment-1-backend-one.vercel.app/meets`
   );
 
   return data ? (
