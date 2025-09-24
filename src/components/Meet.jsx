@@ -116,8 +116,8 @@ const Meet = () => {
       </div>
     </main>
   ) : (
-    <main className="container">
-      <div>{loading && <p>loading...</p>}</div>
+    <main className="container py-3">
+      <div>{loading && <p className="fs-3 text-danger text-center">loading...</p>}</div>
       <div>{error && <p>{error}</p>}</div>
     </main>
   );

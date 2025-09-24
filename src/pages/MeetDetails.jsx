@@ -44,9 +44,7 @@ const MeetDetails = () => {
               <h3 className="mx-2">Event Tags:</h3>
               <div className="d-flex flex-wrap">
                 {data.meet.tags.map((tag) => (
-                  <span className="btn btn-danger fw-bols fs-5 m-1">
-                    {tag}
-                  </span>
+                  <span className="btn btn-danger fw-bols fs-5 m-1">{tag}</span>
                 ))}
               </div>
             </div>
@@ -56,13 +54,13 @@ const MeetDetails = () => {
               <div className="card-body d-grid gap-3">
                 <h4 className="card-title">
                   {data.meet.started.split("T")[0]} at{" "}
-                        {data.meet.started
-                          .split("T")[1]
-                          .slice(0, data.meet.started.split("T")[1].length - 1)} to{" "}
-                  {data.meet.ended.split("T")[0]} at{" "}
-                        {data.meet.ended
-                          .split("T")[1]
-                          .slice(0, data.meet.ended.split("T")[1].length - 1)}
+                  {data.meet.started
+                    .split("T")[1]
+                    .slice(0, data.meet.started.split("T")[1].length - 1)}{" "}
+                  to {data.meet.ended.split("T")[0]} at{" "}
+                  {data.meet.ended
+                    .split("T")[1]
+                    .slice(0, data.meet.ended.split("T")[1].length - 1)}
                 </h4>
                 <p className="card-text fs-5">{data.meet.address}</p>
                 <p className="card-text fs-5">₹{data.meet.price}</p>
@@ -71,9 +69,25 @@ const MeetDetails = () => {
             <div className="mt-5 mb-3 mx-2">
               <h3 className="mb-4">Speakers: ({data.meet.speakers.length})</h3>
               <div className="d-flex flex-wrap">
-                {data.meet.speakers.map((speaker)=>(<span className="fs-5 border border-danger py-2 px-3 rounded m-2">
-                  <b>{speaker}</b>
-                </span>))}
+                {data.meet.speakers.map((speaker) => (
+                  <span
+                    key={speaker._id}
+                    className="d-flex flex-column align-items-center jsutify-content-center fs-5 border border-danger py-2 px-3 rounded m-2 text-center"
+                  >
+                    <img
+                      className="rounded-circle text-center mt-2"
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        objectFit: "cover",
+                        marginBottom: "8px",
+                      }}
+                      src={speaker.image}
+                      alt={speaker.name}
+                    />
+                    <b className="my-2">{speaker.name}</b>
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -81,10 +95,17 @@ const MeetDetails = () => {
       </main>
     </>
   ) : (
-    <main className="container">
-      <div>{loading && <p>loading...</p>}</div>
-      <div>{error && <p>{error}</p>}</div>
-    </main>
+    <>
+      <Header />
+      <main className="container py-3">
+        <div>
+          {loading && (
+            <p className="fs-3 text-danger text-center">loading...</p>
+          )}
+        </div>
+        <div>{error && <p>{error}</p>}</div>
+      </main>
+    </>
   );
 };
 
