@@ -39,7 +39,12 @@ const Meet = () => {
         {type === "Both"
           ? data.meet
               .filter((meet) => {
-                if (meet.title.toLowerCase().includes(search.toLowerCase()) || meet.tags.some((tag)=> tag.toLowerCase().includes(search.toLowerCase())))
+                if (
+                  meet.title.toLowerCase().includes(search.toLowerCase()) ||
+                  meet.tags.some((tag) =>
+                    tag.toLowerCase().includes(search.toLowerCase())
+                  )
+                )
                   return meet;
               })
               .map((meet) => (
@@ -53,8 +58,12 @@ const Meet = () => {
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title">{meet.title}</h5>
                       <p className="card-text text-muted flex-grow-1">
-                        {meet.details}
+                        {meet.started.split("T")[0]} at{" "}
+                        {meet.started
+                          .split("T")[1]
+                          .slice(0, meet.started.split("T")[1].length - 1)}
                       </p>
+                      <b className="mb-2 p-2 text-center">{meet.type}</b>
                       <Link
                         to={`/meets/${meet._id}`}
                         className="btn btn-danger mt-auto"
@@ -68,8 +77,13 @@ const Meet = () => {
           : data.meet
               .filter((meet) => {
                 if (meet.type === type) {
-                  if (meet.title.toLowerCase().includes(search.toLowerCase()) || meet.tags.some((tag)=> tag.toLowerCase().includes(search.toLowerCase())))
-                  return meet;
+                  if (
+                    meet.title.toLowerCase().includes(search.toLowerCase()) ||
+                    meet.tags.some((tag) =>
+                      tag.toLowerCase().includes(search.toLowerCase())
+                    )
+                  )
+                    return meet;
                 }
               })
               .map((meet) => (
@@ -83,8 +97,12 @@ const Meet = () => {
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title">{meet.title}</h5>
                       <p className="card-text text-muted flex-grow-1">
-                        {meet.details}
+                        {meet.started.split("T")[0]} at{" "}
+                        {meet.started
+                          .split("T")[1]
+                          .slice(0, meet.started.split("T")[1].length - 1)}
                       </p>
+                      <p className="btn btn-light">{meet.type}</p>
                       <Link
                         to={`/meets/${meet._id}`}
                         className="btn btn-danger mt-auto"

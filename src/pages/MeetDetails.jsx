@@ -56,9 +56,13 @@ const MeetDetails = () => {
               <div className="card-body d-grid gap-3">
                 <h4 className="card-title">
                   {data.meet.started.split("T")[0]} at{" "}
-                  {data.meet.started.split("T")[1]} to{" "}
+                        {data.meet.started
+                          .split("T")[1]
+                          .slice(0, data.meet.started.split("T")[1].length - 1)} to{" "}
                   {data.meet.ended.split("T")[0]} at{" "}
-                  {data.meet.ended.split("T")[1]}
+                        {data.meet.ended
+                          .split("T")[1]
+                          .slice(0, data.meet.ended.split("T")[1].length - 1)}
                 </h4>
                 <p className="card-text fs-5">{data.meet.address}</p>
                 <p className="card-text fs-5">₹{data.meet.price}</p>
