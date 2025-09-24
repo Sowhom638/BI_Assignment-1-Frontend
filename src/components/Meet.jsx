@@ -11,7 +11,7 @@ const Meet = () => {
 
   return data ? (
     <main className="container py-3">
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between flex-wrap">
         <h2>Meetup Events</h2>
         <input
           type="text"
