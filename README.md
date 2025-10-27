@@ -1,12 +1,136 @@
-# React + Vite
+# Meetup App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic event discovery platform where users can browse, search, and explore upcoming meetups and events. Whether online or in-person, the app provides rich event details—including schedules, speakers, pricing, venue info, and tags—to help attendees make informed decisions.
 
-Currently, two official plugins are available:
+Built with **React frontend**, **Express/Node backend**, and **MongoDB database**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Demo Link
+[Live Demo](https://bi-assignment-1-meetup-app.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Quick Start
+```
+git clone https://github.com/Sowhom638/BI_Assignment-1-Frontend
+cd <Your-Repo>
+npm install
+npm run dev
+```
+---
+
+## Technologies
+- React JS
+- React Router Dom
+- Bootstrap
+- Node JS
+- Express JS
+- MongoDB
+
+---
+## Demo Video
+Watch a walkthrough of all the major features in a demo vide0;
+[Google Drive Link](https://drive.google.com/file/d/16MiKJZ0pLqu7lUFtwMMoN13SV_YLc1Qd/view?usp=sharing)
+
+---
+
+## Features
+
+**Event Listings**
+- Clean, responsive grid layout showcasing all upcoming events.
+- Each event card displays:
+    - Event Title
+    - Date & Time
+    - Event Type: Clearly labeled as Online, Offline
+    - Thumbnail/Image: Visual preview to enhance engagement.
+- Consistent design language for a cohesive and intuitive browsing experience.
+
+**Event Search and Filtering**
+- Search Bar: Search events by title or tags (e.g., ```"Workshop"```, ```"Lecture"```, ```"Hackathon"```, etc.).
+- Type Filter Dropdown:
+    - Options: ```Online```, ```Offline``` and ```Both```
+    - Default view: Both (shows all events)
+- Real-time filtering updates the event list as users type or change filters.
+
+**Event Details Page**
+- Dedicated page for each event with comprehensive information:
+    - Event Topic & Full Description
+    - Session Timings (start/end time, agenda if available)
+    - Speakers or Presenters (with names and brief bios if provided)
+    - Pricing: Clearly displayed for paid events; “Free” label for complimentary events
+    - Venue Details:
+        - For Offline: Full address, map link (optional), and venue name
+        - For Online: Platform (e.g., Zoom, Google Meet) and access instructions
+    - Additional Attendee Info:
+        - Dress code
+        - Age restrictions
+        - What to bring
+        - Accessibility notes
+    - Tags: Displayed as interactive chips (e.g., ```"Workshop"```, ```"Lecture"```, ```"Hackathon"```, etc.)
+
+**Create New Meeting**
+- A page for creating new meeting
+- User have to enter all relevant details:
+    - Title (String)
+    - Host Name (String)
+    - Meeting Details (String)
+    - Tags (Multiple Select Dropdowmn)
+    - Start Time & End Time (Date)
+    - Address (String)
+    - Type (Dropdown - Options: ```Online```, ```Offline``` and ```Both```)
+    - Price (Number)
+    - Speaker Details
+        - Speaker Name
+        - Speaker Image Url
+    - Dress Code
+    - Age Restriction
+    - Thumbnail Image Url
+- A button for submitting the details
+
+---
+
+## API References
+
+**POST /meets**
+Create a new meet
+Sample Response
+```
+{ _id, title, host, details, tags, started, ended, address, type, price, speakers, dressCode, ageRestrictions, coverImage, createdAt, updatedAt }
+```
+
+**GET /meets**
+Get all meets
+Sample Response
+```
+[
+{ _id, title, host, details, tags, started, ended, address, type, price, speakers, dressCode, ageRestrictions, coverImage, createdAt, updatedAt },
+{ _id, title, host, details, tags, started, ended, address, type, price, speakers, dressCode, ageRestrictions, coverImage, createdAt, updatedAt }, ... 
+]
+```
+
+**GET /meets/:meetId**
+Get meet by it's id
+Sample Response
+```
+{ _id, title, host, details, tags, started, ended, address, type, price, speakers, dressCode, ageRestrictions, coverImage, createdAt, updatedAt }
+```
+
+**POST /meets/:meetId**
+Update meet by it's id
+Sample Response
+```
+{ _id, title, host, details, tags, started, ended, address, type, price, speakers, dressCode, ageRestrictions, coverImage, createdAt, updatedAt }
+```
+
+**DELETE /meets/:meetId**
+Delete meet by it's id
+Sample Response
+```
+{ _id, title, host, details, tags, started, ended, address, type, price, speakers, dressCode, ageRestrictions, coverImage, createdAt, updatedAt }
+```
+
+---
+
+## Contact
+for bugs informing or feature requesting , reach out to ghoshsowhom638@gmail.com
